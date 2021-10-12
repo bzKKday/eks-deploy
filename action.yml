@@ -1,13 +1,26 @@
-name: 'Wait'
-description: 'Wait a designated number of milliseconds'
-inputs:
-  milliseconds:  # id of input
-    description: 'number of milliseconds to wait'
-    required: true
-    default: '1000'
-outputs:
-  time: # output will be available to future steps
-    description: 'The message to output'
+name: 'eks-deploy'
+description: 'The kubectl command line program as a GitHub Action'
 runs:
-  using: 'node12'
-  main: 'dist/index.js'
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.cluster }}
+    - ${{ inputs.region }}
+    - ${{ inputs.role }}
+    - ${{ inputs.command }}
+branding:
+  icon: 'terminal'
+  color: 'blue'
+inputs:
+  cluster:
+    description: 'eks cluster name'
+    required: true
+  region:
+    description: 'eks region'
+    required: true
+  role:
+    description: 'eks role'
+    required: true
+  command:
+    description: 'kubectl command to run, without the kubectl, e.g. `get pods`'
+    required: true
