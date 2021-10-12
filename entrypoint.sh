@@ -5,7 +5,7 @@ set -e
 cluster="$1"
 region="$2"
 role="$3"
-command="$3"
+command="$4"
 
 version=$(curl -Ls https://dl.k8s.io/release/stable.txt)
 echo "using kubectl@$version"
