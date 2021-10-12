@@ -46,8 +46,7 @@ unset AWS_SECRET_ACCESS_KEY
 unset AWS_SESSION_TOKEN
 
 # Generate configuration files
-mkdir ~/.kube
-cat > ~/.kube/config << EOF
+cat > /tmp/config << EOF
 apiVersion: v1
 preferences: {}
 kind: Config
@@ -76,4 +75,5 @@ users:
         - $role
 EOF
 
+export KUBECONFIG=/tmp/config
 sh -c "kubectl $command"
