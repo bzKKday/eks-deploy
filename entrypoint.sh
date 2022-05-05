@@ -67,6 +67,7 @@ users:
     exec:
       apiVersion: client.authentication.k8s.io/v1
       command: aws-iam-authenticator
+      interactiveMode: Never
       args:
         - "token"
         - "-i"
