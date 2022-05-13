@@ -8,7 +8,7 @@ role="$3"
 command="$4"
 
 version=$(curl -Ls https://dl.k8s.io/release/stable.txt)
-echo "using kubectl@$1.23.6"
+echo "using kubectl@v1.23.6"
 
 curl -sLO "https://dl.k8s.io/release/$version/bin/linux/amd64/kubectl" -o kubectl
 chmod +x kubectl
